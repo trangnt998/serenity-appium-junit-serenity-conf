@@ -1,0 +1,19 @@
+<configuration>
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Mức log mặc định là WARN -->
+    <root level="WARN">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+    <!-- Giảm log của Serenity, Appium, và Netty xuống ERROR -->
+    <logger name="net.thucydides" level="ERROR"/>
+    <logger name="io.netty" level="ERROR"/>
+    <logger name="org.apache" level="ERROR"/>
+</configuration>
